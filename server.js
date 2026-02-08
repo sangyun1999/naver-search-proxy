@@ -9,7 +9,7 @@ const app = express();
 //app.use(cors()); 
 
 	app.use(cors({
-		origin: ['https://sangyun.pe.kr', 'https://http://dgs2024.ddns.net']
+		origin: ['https://sangyun.pe.kr', 'http://dgs2024.ddns.net']
 	}));
 
 app.get('/search/proxy', async (req, res) => {
