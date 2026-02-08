@@ -24,8 +24,13 @@ app.get('/search/proxy', async (req, res) => {
         });
         res.json(response.data);
     } catch (error) {
-        res.status(500).send('API 호출 실패');
-    }
+		if (error.response) {
+			console.error("Naver API Error:", error.response.data);
+		} else {
+			console.error("Server Error:", error.message);
+		}
+		res.status(500).json({ error: 'API 호출 실패', details: error.message });
+	}
 });
 
 const PORT = process.env.PORT || 3000;
