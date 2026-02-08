@@ -18,8 +18,8 @@ app.get('/search/proxy', async (req, res) => {
         const response = await axios.get('https://openapi.naver.com/v1/search/local.json', {
             params: { query, display: 5 },
             headers: {
-                'X-Naver-Client-Id': 'n9sps6ygn5',
-                'X-Naver-Client-Secret': 'pZFLVjOw6Q6mwMcZ2sxzbMgpbk7KYwoRJsQMOxsL'
+                'X-Naver-Client-Id': process.env.NAVER_CLIENT_ID,
+                'X-Naver-Client-Secret': process.env.NAVER_CLIENT_SECRET
             }
         });
         res.json(response.data);
