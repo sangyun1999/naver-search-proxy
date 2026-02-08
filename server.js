@@ -2,7 +2,15 @@ require('dotenv').config();
 
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 const app = express();
+
+// 2. 모든 도메인에서 내 서버로의 접속을 허용합니다.
+//app.use(cors()); 
+
+	app.use(cors({
+		origin: ['https://sangyun.pe.kr', 'https://http://dgs2024.ddns.net']
+	}));
 
 app.get('/search/proxy', async (req, res) => {
     const { query } = req.query;
