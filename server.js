@@ -16,7 +16,7 @@ app.get('/search/proxy', async (req, res) => {
     const { query } = req.query;
     try {
         const response = await axios.get('https://openapi.naver.com/v1/search/local.json', {
-            params: { query, display: 20 },
+            params: { query, display: 50 },
             headers: {
                 'X-Naver-Client-Id': process.env.NAVER_CLIENT_ID,
                 'X-Naver-Client-Secret': process.env.NAVER_CLIENT_SECRET
